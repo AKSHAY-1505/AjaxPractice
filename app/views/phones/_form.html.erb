@@ -1,0 +1,29 @@
+<%= javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js' %>
+<%= javascript_include_tag 'phones' %>
+<%= form_with(model: phone) do |form| %>
+  <% if phone.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(phone.errors.count, "error") %> prohibited this phone from being saved:</h2>
+      <ul>
+        <% phone.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :brand, style: "display: block" %>
+    <%= form.text_field :brand %>
+  </div>
+  <div>
+    <%= form.label :price, style: "display: block" %>
+    <%= form.number_field :price %>
+  </div>
+  <div>
+    <%= form.submit data: { "bs-dismiss": "modal" } %>
+  </div>
+<% end %>

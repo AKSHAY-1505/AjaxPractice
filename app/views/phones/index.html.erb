@@ -1,0 +1,8 @@
+<p style="color: green"><%= notice %></p>
+<h1>Phones</h1>
+<div id="phones">
+  <% @phones.each do |phone| %>
+    <%= render phone %>
+  <% end %>
+</div>
+<%= render "modal" %>
